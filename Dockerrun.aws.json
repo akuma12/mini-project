@@ -1,0 +1,32 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "volumes": [
+    {
+      "name": "src",
+      "host": {
+        "sourcePath": "/var/app/current/src"
+      }
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "nginx",
+      "image": "nginx",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "mountPoints": [
+        {
+          "sourceVolume": "src",
+          "containerPath": "/usr/share/nginx/html",
+          "readOnly": true
+        }
+      ]
+    }
+  ]
+}
