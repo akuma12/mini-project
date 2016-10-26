@@ -117,7 +117,7 @@ class AwsDeployer
 
   # Zip up the source bundle and upload to S3. Check to make sure source bundle made it
   def upload_source_bundle
-    exclude_filenames = ['.gitignore', '.idea', 'docker-compose.yml', 'Gemfile', 'Gemfile.lock', 'classes/zipper.rb',, 'classes/aws_deployer.rb', 'deploy.rb', '.DS_Store', '*.zip', 'credentials.json', 'credentials.json.template']
+    exclude_filenames = ['.gitignore', '.idea', 'docker-compose.yml', 'Gemfile', 'Gemfile.lock', 'classes/zipper.rb', 'classes/aws_deployer.rb', 'deploy.rb', '.DS_Store', '*.zip', 'credentials.json', 'credentials.json.template']
     @zipfile_name = "#{@sha_hash}.zip"
     
     zf = ZipFileGenerator.new(@folder, File.join(@folder, @zipfile_name), exclude_filenames)
